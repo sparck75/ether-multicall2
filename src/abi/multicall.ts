@@ -1,157 +1,313 @@
 export const multicallAbi = [
   {
-    constant: true,
-    inputs: [
+    "inputs": [
       {
-        components: [
+        "components": [
           {
-            internalType: 'address',
-            name: 'target',
-            type: 'address',
+            "internalType": "address",
+            "name": "target",
+            "type": "address"
           },
           {
-            internalType: 'bytes',
-            name: 'callData',
-            type: 'bytes',
-          },
+            "internalType": "bytes",
+            "name": "callData",
+            "type": "bytes"
+          }
         ],
-        internalType: 'struct Multicall.Call[]',
-        name: 'calls',
-        type: 'tuple[]',
-      },
+        "internalType": "struct Multicall2.Call[]",
+        "name": "calls",
+        "type": "tuple[]"
+      }
     ],
-    name: 'aggregate',
-    outputs: [
+    "name": "aggregate",
+    "outputs": [
       {
-        internalType: 'uint256',
-        name: 'blockNumber',
-        type: 'uint256',
+        "internalType": "uint256",
+        "name": "blockNumber",
+        "type": "uint256"
       },
       {
-        internalType: 'bytes[]',
-        name: 'returnData',
-        type: 'bytes[]',
-      },
+        "internalType": "bytes[]",
+        "name": "returnData",
+        "type": "bytes[]"
+      }
     ],
-    payable: false,
-    stateMutability: 'view',
-    type: 'function',
+    "stateMutability": "nonpayable",
+    "type": "function"
   },
   {
-    constant: true,
-    inputs: [
+    "inputs": [
       {
-        internalType: 'uint256',
-        name: 'blockNumber',
-        type: 'uint256',
-      },
+        "components": [
+          {
+            "internalType": "address",
+            "name": "target",
+            "type": "address"
+          },
+          {
+            "internalType": "bytes",
+            "name": "callData",
+            "type": "bytes"
+          }
+        ],
+        "internalType": "struct Multicall2.Call[]",
+        "name": "calls",
+        "type": "tuple[]"
+      }
     ],
-    name: 'getBlockHash',
-    outputs: [
+    "name": "blockAndAggregate",
+    "outputs": [
       {
-        internalType: 'bytes32',
-        name: 'blockHash',
-        type: 'bytes32',
+        "internalType": "uint256",
+        "name": "blockNumber",
+        "type": "uint256"
       },
+      {
+        "internalType": "bytes32",
+        "name": "blockHash",
+        "type": "bytes32"
+      },
+      {
+        "components": [
+          {
+            "internalType": "bool",
+            "name": "success",
+            "type": "bool"
+          },
+          {
+            "internalType": "bytes",
+            "name": "returnData",
+            "type": "bytes"
+          }
+        ],
+        "internalType": "struct Multicall2.Result[]",
+        "name": "returnData",
+        "type": "tuple[]"
+      }
     ],
-    payable: false,
-    stateMutability: 'view',
-    type: 'function',
+    "stateMutability": "nonpayable",
+    "type": "function"
   },
   {
-    constant: true,
-    inputs: [],
-    name: 'getCurrentBlockCoinbase',
-    outputs: [
+    "inputs": [
       {
-        internalType: 'address',
-        name: 'coinbase',
-        type: 'address',
-      },
+        "internalType": "uint256",
+        "name": "blockNumber",
+        "type": "uint256"
+      }
     ],
-    payable: false,
-    stateMutability: 'view',
-    type: 'function',
+    "name": "getBlockHash",
+    "outputs": [
+      {
+        "internalType": "bytes32",
+        "name": "blockHash",
+        "type": "bytes32"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
   },
   {
-    constant: true,
-    inputs: [],
-    name: 'getCurrentBlockDifficulty',
-    outputs: [
+    "inputs": [],
+    "name": "getBlockNumber",
+    "outputs": [
       {
-        internalType: 'uint256',
-        name: 'difficulty',
-        type: 'uint256',
-      },
+        "internalType": "uint256",
+        "name": "blockNumber",
+        "type": "uint256"
+      }
     ],
-    payable: false,
-    stateMutability: 'view',
-    type: 'function',
+    "stateMutability": "view",
+    "type": "function"
   },
   {
-    constant: true,
-    inputs: [],
-    name: 'getCurrentBlockGasLimit',
-    outputs: [
+    "inputs": [],
+    "name": "getCurrentBlockCoinbase",
+    "outputs": [
       {
-        internalType: 'uint256',
-        name: 'gaslimit',
-        type: 'uint256',
-      },
+        "internalType": "address",
+        "name": "coinbase",
+        "type": "address"
+      }
     ],
-    payable: false,
-    stateMutability: 'view',
-    type: 'function',
+    "stateMutability": "view",
+    "type": "function"
   },
   {
-    constant: true,
-    inputs: [],
-    name: 'getCurrentBlockTimestamp',
-    outputs: [
+    "inputs": [],
+    "name": "getCurrentBlockDifficulty",
+    "outputs": [
       {
-        internalType: 'uint256',
-        name: 'timestamp',
-        type: 'uint256',
-      },
+        "internalType": "uint256",
+        "name": "difficulty",
+        "type": "uint256"
+      }
     ],
-    payable: false,
-    stateMutability: 'view',
-    type: 'function',
+    "stateMutability": "view",
+    "type": "function"
   },
   {
-    constant: true,
-    inputs: [
+    "inputs": [],
+    "name": "getCurrentBlockGasLimit",
+    "outputs": [
       {
-        internalType: 'address',
-        name: 'addr',
-        type: 'address',
-      },
+        "internalType": "uint256",
+        "name": "gaslimit",
+        "type": "uint256"
+      }
     ],
-    name: 'getEthBalance',
-    outputs: [
-      {
-        internalType: 'uint256',
-        name: 'balance',
-        type: 'uint256',
-      },
-    ],
-    payable: false,
-    stateMutability: 'view',
-    type: 'function',
+    "stateMutability": "view",
+    "type": "function"
   },
   {
-    constant: true,
-    inputs: [],
-    name: 'getLastBlockHash',
-    outputs: [
+    "inputs": [],
+    "name": "getCurrentBlockTimestamp",
+    "outputs": [
       {
-        internalType: 'bytes32',
-        name: 'blockHash',
-        type: 'bytes32',
-      },
+        "internalType": "uint256",
+        "name": "timestamp",
+        "type": "uint256"
+      }
     ],
-    payable: false,
-    stateMutability: 'view',
-    type: 'function',
+    "stateMutability": "view",
+    "type": "function"
   },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "addr",
+        "type": "address"
+      }
+    ],
+    "name": "getEthBalance",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "balance",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getLastBlockHash",
+    "outputs": [
+      {
+        "internalType": "bytes32",
+        "name": "blockHash",
+        "type": "bytes32"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "bool",
+        "name": "requireSuccess",
+        "type": "bool"
+      },
+      {
+        "components": [
+          {
+            "internalType": "address",
+            "name": "target",
+            "type": "address"
+          },
+          {
+            "internalType": "bytes",
+            "name": "callData",
+            "type": "bytes"
+          }
+        ],
+        "internalType": "struct Multicall2.Call[]",
+        "name": "calls",
+        "type": "tuple[]"
+      }
+    ],
+    "name": "tryAggregate",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "bool",
+            "name": "success",
+            "type": "bool"
+          },
+          {
+            "internalType": "bytes",
+            "name": "returnData",
+            "type": "bytes"
+          }
+        ],
+        "internalType": "struct Multicall2.Result[]",
+        "name": "returnData",
+        "type": "tuple[]"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "bool",
+        "name": "requireSuccess",
+        "type": "bool"
+      },
+      {
+        "components": [
+          {
+            "internalType": "address",
+            "name": "target",
+            "type": "address"
+          },
+          {
+            "internalType": "bytes",
+            "name": "callData",
+            "type": "bytes"
+          }
+        ],
+        "internalType": "struct Multicall2.Call[]",
+        "name": "calls",
+        "type": "tuple[]"
+      }
+    ],
+    "name": "tryBlockAndAggregate",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "blockNumber",
+        "type": "uint256"
+      },
+      {
+        "internalType": "bytes32",
+        "name": "blockHash",
+        "type": "bytes32"
+      },
+      {
+        "components": [
+          {
+            "internalType": "bool",
+            "name": "success",
+            "type": "bool"
+          },
+          {
+            "internalType": "bytes",
+            "name": "returnData",
+            "type": "bytes"
+          }
+        ],
+        "internalType": "struct Multicall2.Result[]",
+        "name": "returnData",
+        "type": "tuple[]"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  }
 ];
