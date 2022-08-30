@@ -14,7 +14,7 @@ Make multiple Ethereum network requests in a single HTTP query. [ethcall](https:
 ## Example
 
 ```ts
-import { Contract, Provider } from 'ethers-multicall';
+import { Contract, Provider } from 'ethers-multicall2';
 import { ethers } from 'ethers';
 
 import erc20Abi from './abi/erc20.json';
@@ -70,4 +70,4 @@ call();
  | 1337    | 0x77dca2c955b15e9de4dbbcf1246b4b85b651e50e   |
  | 42161   | 0x813715eF627B01f4931d8C6F8D2459F26E19137E   |
  | 43114   | 0x7f3aC7C283d7E6662D886F494f7bc6F1993cDacf   |
- | 80001   | 0x08411ADd0b5AA8ee47563b146743C13b3556c9Cc   |
+ | 80001   | 0xf0F4e303937912e048E223a3e87042006E323Ff7   |
